@@ -12,10 +12,9 @@ box-sizing: border-box;
 // border-radius: 5%;
 box-shadow: 0px 3px 20px gray;
 font-size: 16px;
-margin: 2%;
+margin: 1%;
 width: calc(170px + 1vw);
 `;
-
 const MovieImage = styled.img`
 display: inline-block;
 align-self:center;
@@ -48,14 +47,12 @@ background-color: #fbfbfb;
 }
 
 `;
-
 const Info = styled.div`
 display: flex;
 flex-direction: column;
 margin: 4% 4%;
 min-height: calc(100px + 1vh);
 `;
-
 const Text = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -88,8 +85,6 @@ const MovieCard = () => <>
         </Rates>
 
     </MovieCardBox>
-
-
 </>;
 
 export default MovieCard;
