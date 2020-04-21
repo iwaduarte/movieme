@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 const HeaderBox = styled.div`
 display: flex;
 align-items: center;
-padding-left: 1vw;
+padding-left: 1.5vw;
 background-color: #121212;
 color: #FFF;
 min-height: calc(60px + 3vh);
