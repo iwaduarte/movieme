@@ -1,11 +1,20 @@
 import React from 'react';
-import Header from "../_common/Header/Header";
-import Main from "../_common/Main/Main";
+import MovieCard from "../Components/MovieCard/MovieCard";
+import styled from "styled-components";
 
-const Home = props => <>
-    <Header/>
-    <Main/>
-    <Header/>
+const MoviesBox = styled.div`
+// margin: auto; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`;
+const Home = ({rate, movies}) => <>
+
+    <MoviesBox>
+        {movies.map((movie,index)=> <MovieCard movie={movie}  key={index} rate={rate}/>)}
+    </MoviesBox>;
+
+
 
 </>;
 
