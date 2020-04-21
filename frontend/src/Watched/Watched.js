@@ -17,13 +17,13 @@ font-size: 2rem;
 
 const Watched = props => <WatchedBox>
     <WatchedSection name="Liked">
-        Liked: (10)
+        Liked (10):
     </WatchedSection>
     <WatchedSection name="Disliked">
-        Do not like (20)
+        Do not like (20):
     </WatchedSection>
     <WatchedSection name="No impressions">
-        No impressions (3)
+        No impressions (3):
     </WatchedSection>
 </WatchedBox>;
 
