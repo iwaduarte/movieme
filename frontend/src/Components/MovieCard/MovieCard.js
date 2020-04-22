@@ -5,7 +5,7 @@ const MovieCardBox = styled.div`
 font-family: Georgia;
 display: inline-flex;
 flex-direction: column;
-justify-content: center;
+// justify-content: center;
 flex-wrap: wrap;
 box-sizing: border-box;
 // border: 1px solid #ffc83d;
@@ -49,6 +49,7 @@ background-color: #fbfbfb;
 `;
 const Info = styled.div`
 display: flex;
+flex-grow: 1;
 flex-direction: column;
 margin: 4% 4%;
 min-height: calc(100px + 1vh);
@@ -61,26 +62,26 @@ align-items: flex-end;
 
 `;
 
-const MovieCard = () => <>
+const MovieCard = ({rate, movie}) => <>
     <MovieCardBox>
         <MovieImage src="/guardians_img.jpg"/>
         <Info>
-            <Text> <b>Title:</b> <Span>Guardians of The Galaxy (2009)</Span> </Text>
-            <Text> <b>Description:</b> </Text>
+            <Text> <b>Title:</b> <Span>{movie.title}</Span> </Text>
+            <Text> <b>Description:</b>{movie.description} </Text>
             <Text> <b>IMDB Rating:</b>
                 <Span role="img" aria-label="star-emoji" title="Rating">⭐ </Span>
-                8
+                {movie.imdbRating}
             </Text>
         </Info>
         <Rates>
             <Rate>
-                <AnimatedSpan role="img" aria-label="like-emoji" title="I liked"> 👍 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('liked')} role="img" aria-label="like-emoji" title="I liked"> 👍 </AnimatedSpan>
             </Rate>
             <Rate>
-                <AnimatedSpan role="img" aria-label="like-emoji" title="No feelings about it"> 😐 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('opinionless')} role="img" aria-label="like-emoji" title="No feelings about it"> 😐 </AnimatedSpan>
             </Rate>
             <Rate className="last-rate">
-                <AnimatedSpan role="img" aria-label="like-emoji" title="Did not like"> 👎 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('disliked')} role="img" aria-label="like-emoji" title="Did not like"> 👎 </AnimatedSpan>
             </Rate>
         </Rates>
 
