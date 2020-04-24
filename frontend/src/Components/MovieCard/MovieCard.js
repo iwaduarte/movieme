@@ -12,7 +12,7 @@ box-sizing: border-box;
 // border-radius: 5%;
 box-shadow: 0px 3px 20px gray;
 font-size: 16px;
-margin: 1%;
+margin: calc(5px + 0.5vw);
 width: calc(170px + 1vw);
 `;
 const MovieImage = styled.img`
@@ -75,13 +75,13 @@ const MovieCard = ({rate, movie}) => <>
         </Info>
         <Rates>
             <Rate>
-                <AnimatedSpan onClick={()=>rate('liked')} role="img" aria-label="like-emoji" title="I liked"> 👍 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('liked', movie.id)} role="img" aria-label="like-emoji" title="I liked"> 👍 </AnimatedSpan>
             </Rate>
             <Rate>
-                <AnimatedSpan onClick={()=>rate('opinionless')} role="img" aria-label="like-emoji" title="No feelings about it"> 😐 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('opinionless', movie.id)} role="img" aria-label="like-emoji" title="No feelings about it"> 😐 </AnimatedSpan>
             </Rate>
             <Rate className="last-rate">
-                <AnimatedSpan onClick={()=>rate('disliked')} role="img" aria-label="like-emoji" title="Did not like"> 👎 </AnimatedSpan>
+                <AnimatedSpan onClick={()=>rate('disliked', movie.id)} role="img" aria-label="like-emoji" title="Did not like"> 👎 </AnimatedSpan>
             </Rate>
         </Rates>
 
