@@ -1,29 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
+import MovieCard from "../Components/MovieCard/MovieCard";
 
 const WatchedBox = styled.div`
 display: flex;
 flex-direction: column;
 margin: 2%;
 align-items: center;
+font-family: Georgia;
+font-size: 2rem;
 
 `;
 const WatchedSection = styled.div`
 display: flex;
 margin: 1vh;
-font-family: Georgia;
-font-size: 2rem;
-`;
 
-const Watched = props => <WatchedBox>
+`;
+const Title = styled.div``;
+
+const Watched = ({movies}) => <WatchedBox>
+   { console.log(movies)}
+    <Title> Liked (10): </Title>
     <WatchedSection name="Liked">
-        Liked (10):
+        {movies['liked'] && movies['liked'].length && movies['liked']
+            .map((movie, index) => <MovieCard movie={movie} key={index} rate={() => console.log('remove')}/>)}
     </WatchedSection>
+    <Title> Do not like (20):</Title>
     <WatchedSection name="Disliked">
-        Do not like (20):
+        {movies['disliked'] && movies['disliked'].length && movies['disliked'].map((movie, index) => <MovieCard
+            movie={movie} key={index}
+            rate={() => console.log('remove')}/>)}
     </WatchedSection>
+    <Title> No impressions (3):</Title>
     <WatchedSection name="No impressions">
-        No impressions (3):
+        {movies['opinionless'] && movies['opinionless'].length && movies['opinionless'].map((movie, index) => <MovieCard
+            movie={movie} key={index}
+            rate={() => console.log('remove')}/>)}
+
+
     </WatchedSection>
 </WatchedBox>;
 
