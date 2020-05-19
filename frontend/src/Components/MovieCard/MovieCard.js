@@ -61,8 +61,11 @@ margin: 2% 0;
 align-items: flex-end;
 
 `;
+const remove = () => {
 
-const MovieCard = ({rate, movie}) => <>
+};
+
+const MovieCard = ({rate, movie, rated}) => <>
     <MovieCardBox>
         <MovieImage src="/guardians_img.jpg"/>
         <Info>
@@ -74,15 +77,27 @@ const MovieCard = ({rate, movie}) => <>
             </Text>
         </Info>
         <Rates>
-            <Rate>
-                <AnimatedSpan onClick={()=>rate('liked', movie.id)} role="img" aria-label="like-emoji" title="I liked"> 👍 </AnimatedSpan>
-            </Rate>
-            <Rate>
-                <AnimatedSpan onClick={()=>rate('opinionless', movie.id)} role="img" aria-label="like-emoji" title="No feelings about it"> 😐 </AnimatedSpan>
-            </Rate>
-            <Rate className="last-rate">
-                <AnimatedSpan onClick={()=>rate('disliked', movie.id)} role="img" aria-label="like-emoji" title="Did not like"> 👎 </AnimatedSpan>
-            </Rate>
+            {!rated
+                ?
+                <>
+                    <Rate>
+                        <AnimatedSpan onClick={() => rate('liked', movie.id)} role="img" aria-label="like-emoji"
+                                      title="I liked"> 👍 </AnimatedSpan>
+                    </Rate>
+                    <Rate>
+                        <AnimatedSpan onClick={() => rate('opinionless', movie.id)} role="img" aria-label="like-emoji"
+                                      title="No feelings about it"> 😐 </AnimatedSpan>
+                    </Rate>
+                    <Rate className="last-rate">
+                        <AnimatedSpan onClick={() => rate('disliked', movie.id)} role="img" aria-label="like-emoji"
+                                      title="Did not like"> 👎 </AnimatedSpan>
+                    </Rate>
+                </>
+                : <Rate>
+                    <AnimatedSpan onClick={() => remove('opinionless', movie.id)} role="img" aria-label="like-emoji"
+                                  title="Remove"> ❌ </AnimatedSpan>
+                </Rate>
+            }
         </Rates>
 
     </MovieCardBox>
