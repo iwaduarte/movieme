@@ -16,10 +16,12 @@ const moviesArr = [
     },
     {
         id: 2,
-        title: '',
-        description: '',
-        imdbRating: '',
-        image: '',
+        Title: 'La Vitta e Bella',
+        Year: '2001',
+        Genre: '',
+        description: 'La vitta e bella',
+        imdbRating: '7.4',
+        Poster: '/guardians_img.jpg',
     },
     {
         id: 3,
