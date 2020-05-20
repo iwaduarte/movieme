@@ -3,59 +3,15 @@ import {Route, Switch} from 'react-router-dom';
 import Home from "../../Home/Home";
 import Watched from "../../Watched/Watched";
 import Quiz from "../../Quiz/Quiz";
+import moviesList from './Movies';
+import usePagination from "../myHooks/usePagination";
 
-const moviesArr = [
-    {
-        id: 1,
-        Title: 'Guardians of The Galaxy (2009)',
-        Year: '2009',
-        Genre: '',
-        description: 'Bunch of criminals get together to save galaxy from another criminals',
-        imdbRating: '8',
-        Poster: '/guardians_img.jpg',
-    },
-    {
-        id: 2,
-        Title: 'La Vitta e Bella',
-        Year: '2001',
-        Genre: '',
-        description: 'La vitta e bella',
-        imdbRating: '7.4',
-        Poster: '/guardians_img.jpg',
-    },
-    {
-        id: 3,
-        title: '',
-        description: '',
-        imdbRating: '',
-        image: '',
-    },
-    {
-        id: 4,
-        title: '',
-        description: '',
-        imdbRating: '',
-        image: '',
-    },
-    {
-        id: 6,
-        title: '',
-        description: '',
-        imdbRating: '',
-        image: '',
-    },
-    {
-        id: 5,
-        title: '',
-        description: '',
-        imdbRating: '',
-        image: '',
-    }
-];
 
 const Main = props => {
-    const [movies, setMovies] = useState(moviesArr);
+    const [movies, setMovies] = useState(moviesList);
+    const [paginatedMovies, nextMovies, prevMovies] = usePagination(moviesList, 10);
     const [moviesWatched, setMoviesWatched] = useState({});
+
 
     const rate = useCallback((rate, id) => {
         setMoviesWatched(prevWatched => {
@@ -74,8 +30,12 @@ const Main = props => {
     }, [movies, moviesWatched, setMoviesWatched, setMovies]);
 
     return <Switch>
+
         <Route exact path="/">
-            <Home rate={rate} movies={movies}/>
+            {/*<Home rate={rate} movies={movies}/>*/}
+            <div onClick={prevMovies}>Prev</div>
+            <div onClick={nextMovies}> Next</div>
+            <Home rate={rate} movies={paginatedMovies}/>
         </Route>
         <Route exact path="/watched">
             <Watched movies={moviesWatched}/>
