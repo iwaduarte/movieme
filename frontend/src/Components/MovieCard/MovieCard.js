@@ -67,13 +67,13 @@ const remove = () => {
 
 const MovieCard = ({rate, movie, rated}) => <>
     <MovieCardBox>
-        <MovieImage src="/guardians_img.jpg"/>
+        <MovieImage src={movie.image || "/guardians_img.jpg"}/>
         <Info>
             <Text> <b>Title:</b> <Span>{movie.title}</Span> </Text>
             <Text> <b>Description:</b>{movie.description} </Text>
             <Text> <b>IMDB Rating:</b>
                 <Span role="img" aria-label="star-emoji" title="Rating">⭐ </Span>
-                {movie.imdbRating}
+                {movie.imDbRating}
             </Text>
         </Info>
         <Rates>
