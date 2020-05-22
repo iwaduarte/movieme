@@ -9,7 +9,7 @@ import usePagination from "../myHooks/usePagination";
 
 const Main = props => {
     const [movies, setMovies] = useState(moviesList);
-    const [paginatedMovies, nextMovies, prevMovies] = usePagination(moviesList, 10);
+    const [paginatedMovies, nextMovies, prevMovies] = usePagination(moviesList, 85);
     const [moviesWatched, setMoviesWatched] = useState({});
 
 
@@ -34,7 +34,7 @@ const Main = props => {
         <Route exact path="/">
             {/*<Home rate={rate} movies={movies}/>*/}
             <div onClick={prevMovies}>Prev</div>
-            <div onClick={nextMovies}> Next</div>
+            {/*<div onClick={nextMovies}> Next</div>*/}
             <Home rate={rate} movies={paginatedMovies}/>
         </Route>
         <Route exact path="/watched">

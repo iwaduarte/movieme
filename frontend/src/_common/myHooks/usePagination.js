@@ -12,12 +12,25 @@ const usePagination = (data, offset) => {
 
 
     const nextChunk = () => {
+        if (position > data.length) {
+            setDataChunk(data.slice(0, offset));
+            setPosition(offset);
+            return;
+        }
         setDataChunk(data.slice(position, position + offset));
         setPosition(prevPosition => prevPosition + offset);
     };
 
     const prevChunk = () => {
-        setDataChunk(data.slice(position - offset,position ));
+
+        if (position - offset < 0 ) {
+            console.log('position',position);
+            const startPosition = Math.floor((data.length / offset)) * offset;
+            setDataChunk(data.slice(startPosition, data.length ));
+            setPosition(startPosition);
+            return;
+        }
+        setDataChunk(data.slice(position - offset, position));
         setPosition(prevPosition => prevPosition - offset);
     };
 
