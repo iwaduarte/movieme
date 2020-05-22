@@ -5,11 +5,19 @@ import Watched from "../../Watched/Watched";
 import Quiz from "../../Quiz/Quiz";
 import moviesList from './Movies';
 import usePagination from "../myHooks/usePagination";
+import styled from "styled-components";
 
+
+const Pagination = styled.div`
+display: flex;
+justify-content: space-around;
+cursor: pointer;
+
+`;
 
 const Main = props => {
     const [movies, setMovies] = useState(moviesList);
-    const [paginatedMovies, nextMovies, prevMovies] = usePagination(moviesList, 85);
+    const [paginatedMovies, nextMovies, prevMovies, pages, goToPage] = usePagination(moviesList, 10);
     const [moviesWatched, setMoviesWatched] = useState({});
 
 
@@ -33,8 +41,14 @@ const Main = props => {
 
         <Route exact path="/">
             {/*<Home rate={rate} movies={movies}/>*/}
-            <div onClick={prevMovies}>Prev</div>
-            {/*<div onClick={nextMovies}> Next</div>*/}
+            <Pagination>
+                {pages.map(i=><div onClick={()=>goToPage(i)}>{i}</div>)}
+                <div onClick={prevMovies}>Prev</div>
+                <div onClick={nextMovies}> Next</div>
+
+
+
+            </Pagination>
             <Home rate={rate} movies={paginatedMovies}/>
         </Route>
         <Route exact path="/watched">
