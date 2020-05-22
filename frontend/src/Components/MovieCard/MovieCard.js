@@ -75,6 +75,7 @@ const MovieCard = ({rate, movie, rated}) => <>
                 <Span role="img" aria-label="star-emoji" title="Rating">⭐ </Span>
                 {movie.imDbRating}
             </Text>
+            <Text>Rank: {movie.rank}</Text>
         </Info>
         <Rates>
             {!rated
