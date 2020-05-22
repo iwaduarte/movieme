@@ -3,16 +3,15 @@ import MovieCard from "../Components/MovieCard/MovieCard";
 import styled from "styled-components";
 
 const MoviesBox = styled.div`
-// margin: auto; 
+    margin: auto; 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 `;
 const Home = ({rate, movies}) => <>
 
     <MoviesBox>
         {movies.map((movie,index)=> <MovieCard movie={movie}  key={index} rate={rate}/>)}
-    </MoviesBox>;
+    </MoviesBox>
 
 
 
