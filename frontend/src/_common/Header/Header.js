@@ -55,7 +55,9 @@ const Header = () => <>
             <MenuItem>
                 <StyledLink to="watched">Watched</StyledLink>
             </MenuItem>
-            <MenuItem> <StyledLink to="quiz">Quiz</StyledLink></MenuItem>
+            <MenuItem>
+                <StyledLink to="quiz">Quiz</StyledLink>
+            </MenuItem>
         </MenuBar>
     </HeaderBox>
 </>;
