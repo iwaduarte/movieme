@@ -7,18 +7,42 @@ import moviesList from './Movies';
 import usePagination from "../myHooks/usePagination";
 import styled from "styled-components";
 
-
 const Pagination = styled.div`
 display: flex;
 justify-content: space-around;
 cursor: pointer;
-
 `;
+
+const Prev = styled.div`
+cursor: pointer;
+&:hover{
+transform: scale(1.1);
+color: #fbfbfb;
+border: red;
+}
+`;
+const Next = styled(Prev)`
+s`;
 
 const Main = props => {
     const [movies, setMovies] = useState(moviesList);
     const [paginatedMovies, nextMovies, prevMovies, pages, goToPage] = usePagination(moviesList, 10);
     const [moviesWatched, setMoviesWatched] = useState({});
+
+    const removeRate = useCallback((id) => {
+        setMovies(prevState => {
+            const movie = {...movies.find(el => el.id === id)};
+            const newState = {...prevState, movie};
+            return newState;
+        });
+        setMoviesWatched(prevState => prevState.filter(rate => {
+
+
+            movie.id !== id
+
+        } ));
+        console.log(rate);
+    }, [movies, moviesWatched, setMoviesWatched, setMovies]);
 
 
     const rate = useCallback((rate, id) => {
@@ -33,7 +57,6 @@ const Main = props => {
             return newPrevWatched;
         });
         setMovies(prevMovies => prevMovies.filter(movie => movie.id !== id));
-
         console.log(rate);
     }, [movies, moviesWatched, setMoviesWatched, setMovies]);
 
@@ -41,18 +64,16 @@ const Main = props => {
 
         <Route exact path="/">
             {/*<Home rate={rate} movies={movies}/>*/}
-            <Pagination>
+
+                   <Pagination>
                 {pages.map(i=><div onClick={()=>goToPage(i)}>{i}</div>)}
-                <div onClick={prevMovies}>Prev</div>
-                <div onClick={nextMovies}> Next</div>
-
-
-
+                <Prev onClick={prevMovies}>Prev</Prev>
+                <Next onClick={nextMovies}> Next</Next>
             </Pagination>
             <Home rate={rate} movies={paginatedMovies}/>
         </Route>
         <Route exact path="/watched">
-            <Watched movies={moviesWatched}/>
+            <Watched movies={moviesWatched} removeWatched={setMoviesWatched}/>
         </Route>
         <Route exact path="/quiz">
             <Quiz/>
