@@ -35,8 +35,10 @@ transform: scale(1.5) translateY(-2px);
 }
 `;
 const Rate = styled.div`
-border-top: 1px solid #ffc83d;
-border-right: 1px solid #ffc83d;
+border-top: 1px solid #cdf;
+// border-right: 1px solid #ffc83d;
+// border-top: 1px solid #f3f20;
+border-right: 1px solid #fbfbfb;
 text-align: center;
 cursor: pointer;
 padding: 1vh;
