@@ -35,12 +35,7 @@ const Main = props => {
             const newState = {...prevState, movie};
             return newState;
         });
-        setMoviesWatched(prevState => prevState.filter(rate => {
-
-
-            movie.id !== id
-
-        } ));
+        setMoviesWatched(prevState => prevState.mapz(rateObj => rate.filter(movie => movie.id !== id)));
         console.log(rate);
     }, [movies, moviesWatched, setMoviesWatched, setMovies]);
 
@@ -65,8 +60,8 @@ const Main = props => {
         <Route exact path="/">
             {/*<Home rate={rate} movies={movies}/>*/}
 
-                   <Pagination>
-                {pages.map(i=><div onClick={()=>goToPage(i)}>{i}</div>)}
+            <Pagination>
+                {pages.map(i => <div onClick={() => goToPage(i)}>{i}</div>)}
                 <Prev onClick={prevMovies}>Prev</Prev>
                 <Next onClick={nextMovies}> Next</Next>
             </Pagination>
