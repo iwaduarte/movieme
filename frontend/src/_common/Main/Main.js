@@ -68,7 +68,7 @@ const Main = props => {
             <Home rate={rate} movies={paginatedMovies}/>
         </Route>
         <Route exact path="/watched">
-            <Watched movies={moviesWatched} removeWatched={setMoviesWatched}/>
+            <Watched movies={moviesWatched} removeWatched={removeRate}/>
         </Route>
         <Route exact path="/quiz">
             <Quiz/>
