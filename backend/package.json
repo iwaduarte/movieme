@@ -4,8 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node scrapper.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "iwaduarte",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "puppeteer": "^23.10.2"
+  }
 }
