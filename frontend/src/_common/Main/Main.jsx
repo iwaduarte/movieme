@@ -4,7 +4,7 @@ import Home from "../../Home/Home";
 import Watched from "../../Watched/Watched";
 import Quiz from "../../Quiz/Quiz";
 import moviesList from "./Movies";
-import usePagination from "../myHooks/usePagination";
+import usePagination from "../../_hooks/usePagination";
 import styled from "styled-components";
 
 const Pagination = styled.div`
