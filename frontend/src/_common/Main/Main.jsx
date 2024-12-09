@@ -22,7 +22,7 @@ const Prev = styled.div`
   }
 `;
 
-const Next = styled(Prev);
+const Next = styled(Prev)``;
 
 
 const Main = () => {
@@ -71,7 +71,7 @@ const Main = () => {
 
         <Pagination>
           {pages?.map((i) => (
-            <div onClick={() => goToPage(i)}>{i}</div>
+            <div key={i} onClick={() => goToPage(i)}>{i}</div>
           ))}
           <Prev onClick={prevMovies}>Prev</Prev>
           <Next onClick={nextMovies}> Next</Next>
