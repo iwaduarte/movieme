@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, {useCallback, useState} from "react";
+import {Route, Switch} from "react-router-dom";
 import Home from "../../Home/Home";
 import Watched from "../../Watched/Watched";
 import Quiz from "../../Quiz/Quiz";
@@ -21,12 +21,13 @@ const Prev = styled.div`
     border: red;
   }
 `;
-const Next = styled(Prev)`
-s`;
 
-const Main = (props) => {
+const Next = styled(Prev);
+
+
+const Main = () => {
   const [movies, setMovies] = useState(moviesList);
-  const [paginatedMovies, nextMovies, prevMovies, pages, goToPage] =
+  const [paginatedMovies, nextMovies, prevMovies, pages =[], goToPage] =
     usePagination(moviesList, 10);
   const [moviesWatched, setMoviesWatched] = useState({});
 
@@ -34,11 +35,10 @@ const Main = (props) => {
     (id) => {
       setMovies((prevState) => {
         const movie = { ...movies.find((el) => el.id === id) };
-        const newState = { ...prevState, movie };
-        return newState;
+          return {...prevState, movie};
       });
       setMoviesWatched((prevState) =>
-        prevState.mapz((rateObj) => rate.filter((movie) => movie.id !== id)),
+        prevState.map((rateObj) => rate.filter((movie) => movie.id !== id)),
       );
       console.log(rate);
     },
@@ -70,7 +70,7 @@ const Main = (props) => {
         {/*<Home rate={rate} movies={movies}/>*/}
 
         <Pagination>
-          {pages.map((i) => (
+          {pages?.map((i) => (
             <div onClick={() => goToPage(i)}>{i}</div>
           ))}
           <Prev onClick={prevMovies}>Prev</Prev>

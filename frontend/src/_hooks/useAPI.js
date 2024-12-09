@@ -6,12 +6,10 @@ const handleGet = () => {
 };
 const handleCreate = () => {};
 const handleUpdate = () => {};
-
 const handleDelete = () => {};
 
 const useApi = () => {
   const [data, setData] = useState([]);
-
   useEffect(() => {
     handleGet();
   }, [handleGet]);

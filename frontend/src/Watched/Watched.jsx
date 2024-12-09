@@ -7,7 +7,7 @@ const WatchedBox = styled.div`
   flex-direction: column;
   margin: 2%;
   align-items: center;
-  font-family: Georgia;
+  font-family: Georgia,serif;
   font-size: 2rem;
 `;
 const WatchedSection = styled.div`
@@ -18,7 +18,6 @@ const Title = styled.div``;
 
 const Watched = ({ movies, removeWatched }) => (
   <WatchedBox>
-    {console.log(movies)}
     <Title> Liked (10): </Title>
     <WatchedSection name="Liked">
       {movies["liked"] &&

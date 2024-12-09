@@ -25,7 +25,7 @@ const questions = [
 const questionIterator = questions[Symbol.iterator]();
 const qIterator = questionIterator.next();
 
-const Quiz = (props) => {
+const Quiz = () => {
   const [question, setQuestion] = useState(qIterator && qIterator.value[0]);
   const [button, setButton] = useState(qIterator && qIterator.value[1]);
 

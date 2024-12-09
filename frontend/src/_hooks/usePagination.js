@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 const usePagination = (data, offset) => {
   const [dataChunk, setDataChunk] = useState([]);

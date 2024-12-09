@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MovieCardBox = styled.div`
-  font-family: Georgia;
+  font-family: Georgia,serif;
   display: inline-flex;
   flex-direction: column;
   // justify-content: center;
@@ -10,7 +10,7 @@ const MovieCardBox = styled.div`
   box-sizing: border-box;
   // border: 1px solid #ffc83d;
   // border-radius: 5%;
-  box-shadow: 0px 3px 20px gray;
+  box-shadow: 0 3px 20px gray;
   font-size: 16px;
   margin: calc(5px + 0.5vw);
   width: calc(170px + 1vw);
